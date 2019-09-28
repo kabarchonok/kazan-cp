@@ -1,20 +1,32 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+    <v-app id="app" v-if="this.$route.path === '/'">
+        <div class="app__wrapper">
+            <router-view/>
+        </div>
+    </v-app>
+    <v-app v-else>
+        <the-header/>
+        <the-content/>
+        <the-footer/>
+    </v-app>
 </template>
 
+<script>
+    import TheHeader from "./components/TheHeader";
+    import TheContent from "./components/TheContent";
+    import TheFooter from "./components/TheFooter";
+
+    export default {
+        components: {TheFooter, TheContent, TheHeader},
+        mounted() {
+            console.log(this.$route.path === '/')
+        }
+    }
+</script>
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+    :root {
+        --header-bg-color: linear-gradient(118deg, #1D976C, #75d99a);
+    }
+
 </style>
