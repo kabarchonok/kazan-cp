@@ -34,18 +34,31 @@
                 <v-btn :disabled="!city" class="primary" @click="nextStep">Далее</v-btn>
             </div>
         </v-card-text>
+        <v-card-text v-else-if="step === 3">
+            <div class="quiz__question">
+                Выберите интересующие варианты
+            </div>
+            <div class="quiz__content">
+                <quiz-advanced/>
+            </div>
+            <div class="quiz__action">
+                <v-btn :disabled="!city" class="primary" @click="nextStep">Далее</v-btn>
+            </div>
+        </v-card-text>
+
     </v-card>
 </template>
 
 <script>
     import QuizWeekdays from "./QuizWeekdays";
+    import QuizAdvanced from "./QuizAdvanced";
 
     export default {
         name: "Quiz",
-        components: {QuizWeekdays},
+        components: {QuizAdvanced, QuizWeekdays},
         data() {
             return {
-                step: 0,
+                step: 3,
 
                 weekdays: [],
                 cities: [
@@ -81,7 +94,7 @@
     }
 
     .quiz__content {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
         line-height: 1.6rem;
         margin-bottom: 2rem;
     }
