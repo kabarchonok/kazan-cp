@@ -36,8 +36,9 @@
 
 <style scoped>
     .stepper {
-        width: 940px;
+        max-width: 940px;
         margin: auto;
+        padding: 0 2.5rem;
     }
 
     .stepper__title {
@@ -46,6 +47,14 @@
         margin-bottom: 2rem;
         display: flex;
         align-items: baseline;
+    }
+
+    @media (max-width: 640px) {
+        .stepper__title {
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     .stepper__title-icon {

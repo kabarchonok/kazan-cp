@@ -82,7 +82,7 @@
 
 <style scoped>
     .auth {
-        width: 325px;
+        max-width: 325px;
         margin: auto;
         padding: 1rem;
     }

@@ -76,6 +76,15 @@
         }
     }
 
+    @media (max-width: 640px) {
+        .greeter__header-wrapper {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
     .greeter__title {
         display: flex;
         font-size: 6em;
