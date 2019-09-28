@@ -1,6 +1,6 @@
 <template>
     <div class="funds">
-        <div class="funds__title">Список фондов</div>
+        <!--<div class="funds__title">Список фондов</div>-->
         <quiz/>
     </div>
 </template>
@@ -15,5 +15,14 @@
 </script>
 
 <style scoped>
-
+    .funds {
+        max-width: 940px;
+        margin:  auto;
+    }
+    .funds__title {
+        font-size: 2rem;
+        font-weight: bold;
+        border-bottom: 1px solid #d0d0d0;
+        margin-bottom: 3rem;
+    }
 </style>
