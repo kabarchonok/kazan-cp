@@ -19,6 +19,11 @@ export default new Router({
             component: () => import(/* webpackChunkName: "auth" */ './views/Auth')
         },
         {
+            path: '/quiz',
+            name: 'Quiz',
+            component: () => import(/* webpackChunkName: "quiz" */ './views/Quiz')
+        },
+        {
             path: '/funds',
             name: 'Funds',
             component: () => import(/* webpackChunkName: "funds" */ './views/Funds')

@@ -73,7 +73,7 @@
                 this.LeaderIdLoading = true
 
                 setTimeout(() => {
-                    this.$router.push('/funds')
+                    this.$router.push('/quiz')
                 }, 2000)
             }
         }

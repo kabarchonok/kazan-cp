@@ -2,15 +2,7 @@
     <div class="greeter__header">
         <div class="greeter__header-wrapper-bg"></div>
         <div class="greeter__header-wrapper">
-            <div class="greeter__title font-weight-bold">
-                Ави <img class="greeter__title-icon ml-10" src="../../assets/ant.png">
-            </div>
-            <div class="greeter__sub-title">
-                Делаем мир лучше
-            </div>
-            <div class="greeter__action">
-                <v-btn to="/auth" depressed dark>Сделать доброе дело</v-btn>
-            </div>
+            <div class="greeter__logo"></div>
         </div>
     </div>
 </template>
@@ -52,7 +44,7 @@
     .greeter__header-wrapper {
         color: #ffffff;
         position: absolute;
-        padding: 5rem;
+        padding: 3rem 5rem;
         left: 0;
         right: 0;
         top: 0;
@@ -85,15 +77,12 @@
         }
     }
 
-    .greeter__title {
-        display: flex;
-        font-size: 6em;
-        align-items: center;
-    }
-
-    .greeter__title-icon {
-        display: block;
-        height: 6rem;
+    .greeter__logo {
+        background: url("../../assets/logo.png")no-repeat left;
+        background-size: contain;
+        width: 100%;
+        height: 245px;
+        margin-bottom: 2rem;
     }
 
     .greeter__sub-title {

@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <router-link to="/" class="logo font-weight-bold">Ави <img class="logo__icon" src="../assets/ant.png"></router-link>
+        <router-link to="/" title="На главную" class="logo"></router-link>
     </header>
 </template>
 
@@ -12,7 +12,7 @@
 
 <style scoped>
     .header {
-        padding: 1rem 2rem;
+        padding: .3rem 2rem 1rem;
         background: var(--header-bg-color);
         color: #ffffff;
         border-bottom-left-radius: 10%;
@@ -21,17 +21,11 @@
     }
 
     .logo {
-        font-size: 1.3rem;
-        display: flex;
-        align-items: center;
-        color: #ffffff;
-        text-decoration: none;
-        width: 85px;
+        background: url("../assets/logo-sm.png") no-repeat center;
+        background-size: contain;
+        width: 80px;
+        height: 50px;
+        display: block;
     }
 
-    .logo__icon {
-        height: 1.3rem;
-        display: inline-block;
-        margin-left: .5rem;
-    }
 </style>
