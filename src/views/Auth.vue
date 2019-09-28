@@ -18,7 +18,7 @@
                 <v-tab-item value="signIn">
                     <v-form ref="form">
                         <div class="auth__oauth">
-                            <v-btn height="70" class="auth__button leader-id"> Войти через Leader ID</v-btn>
+                            <v-btn height="70" class="auth__button leader-id" :loading="LeaderIdLoading" @click="enter"> Войти через Leader ID</v-btn>
                             <div class="oauth__delimiter"></div>
                             <v-btn class="auth__button">
                                 <div class="auth__button-wrapper"><i class="icon google"></i> Войти через Google
@@ -64,7 +64,17 @@
         name: "Auth",
         data() {
             return {
-                tab: null
+                tab: null,
+                LeaderIdLoading: false,
+            }
+        },
+        methods: {
+            enter() {
+                this.LeaderIdLoading = true
+
+                setTimeout(() => {
+                    this.$router.push('/funds')
+                }, 2000)
             }
         }
     }

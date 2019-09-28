@@ -9,7 +9,7 @@
                 Делаем мир лучше
             </div>
             <div class="greeter__action">
-                <v-btn depressed dark>Сделать доброе дело</v-btn>
+                <v-btn to="/auth" depressed dark>Сделать доброе дело</v-btn>
             </div>
         </div>
     </div>

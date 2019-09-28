@@ -1,34 +1,66 @@
 <template>
     <v-card class="quiz">
-        <v-card-text>
-            <div v-if="!interests">
-                <p class="quiz__title">Привет! <img src="../../assets/waving-hand-sign.png" class="quiz__icon"></p>
-                <p class="quiz__content">Пройдите небольшой опрос, чтобы мы могли подобрать для вас организации на основе ваших возможностей и интересов</p>
-                <div class="quiz__action">
-                    <v-btn class="primary">Пройти опорос</v-btn>
-                </div>
+        <v-card-text v-if="step === 0">
+            <div class="quiz__title">Привет! <img src="../../assets/waving-hand-sign.png" class="quiz__icon"></div>
+            <div class="quiz__content">Пройдите небольшой опрос, чтобы мы могли подобрать для вас организации на
+                основе ваших возможностей и интересов
             </div>
-            <div v-else class="quiz__wrapper">
-                <div class="quiz__question">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, vitae.
-                </div>
-                <div class="quiz__answers">
-                    <div class="quiz__answer">Поделиться одеждой</div>
-                    <div class="quiz__answer">Пожертвовать деньги</div>
-                    <div class="quiz__answer">Уборка территории</div>
-                    <div class="quiz__answer">Что-нибудь еще</div>
-                </div>
+            <div class="quiz__action">
+                <v-btn class="primary" @click="nextStep">Пройти опорос</v-btn>
+            </div>
+        </v-card-text>
+        <v-card-text v-else-if="step === 1">
+            <div class="quiz__question">
+                В какое время вам было бы удобнее всего участвовать в волонтерстве?
+            </div>
+            <div class="quiz__content">
+                <quiz-weekdays :weekdays.sync="weekdays"/>
+            </div>
+            <div class="quiz__action">
+                <v-btn :disabled="weekdays.length === 0" class="primary" @click="nextStep">Далее</v-btn>
+            </div>
+        </v-card-text>
+        <v-card-text v-else-if="step === 2">
+            <div class="quiz__question">
+                Выберите свой город
+            </div>
+            <div class="quiz__content">
+                <v-select
+                        :items="cities"
+                        v-model="city"
+                />
+            </div>
+            <div class="quiz__action">
+                <v-btn :disabled="!city" class="primary" @click="nextStep">Далее</v-btn>
             </div>
         </v-card-text>
     </v-card>
 </template>
 
 <script>
+    import QuizWeekdays from "./QuizWeekdays";
+
     export default {
         name: "Quiz",
+        components: {QuizWeekdays},
         data() {
             return {
-                interests: false
+                step: 0,
+
+                weekdays: [],
+                cities: [
+                    'Москва',
+                    'Санкт-Петербург',
+                    'Казань',
+                    'Екатеринбург',
+                    'Новосибирск',
+                ],
+                city: null
+            }
+        },
+        methods: {
+            nextStep() {
+                this.step++
             }
         }
     }
@@ -36,6 +68,8 @@
 
 <style scoped>
     .quiz {
+        width: 760px;
+        margin: auto;
         padding: 1rem 2rem;
     }
 
@@ -58,7 +92,11 @@
         height: 1rem;
     }
 
-    .quiz__answer {
-
+    .quiz__question {
+        font-size: 1.7rem;
+        line-height: 1.7rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 2.5rem;
     }
 </style>
