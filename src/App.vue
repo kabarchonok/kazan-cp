@@ -18,9 +18,6 @@
 
     export default {
         components: {TheFooter, TheContent, TheHeader},
-        mounted() {
-            console.log(this.$route.path === '/')
-        }
     }
 </script>
 
