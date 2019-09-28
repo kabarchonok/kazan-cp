@@ -1,44 +1,61 @@
 <template>
-    <v-card>
-        <v-tabs>
-            <v-tabs-slider></v-tabs-slider>
+    <v-card class="auth">
+        <v-tabs
+                v-model="tab"
+                centered>
+            <v-tabs-slider/>
 
-            <v-tab href="#tab-1">
+            <v-tab href="#signIn">
                 Войти
             </v-tab>
 
-            <v-tab href="#tab-2">
+            <v-tab href="#signUp">
                 Зарегистрироваться
             </v-tab>
 
 
-            <v-tabs-items v-model="tab">
-                <v-tab-item
-                        v-for="i in 3"
-                        :key="i"
-                        :value="'tab-' + i"
-                >
-                    <v-card flat>
-                        <v-card-text>lorem</v-card-text>
-                    </v-card>
+            <v-tabs-items class="pt-10" v-model="tab">
+                <v-tab-item value="signIn">
+                    <v-form ref="form">
+                        <div class="auth__oauth">
+                            <v-btn height="70" class="auth__button leader-id"> Войти через Leader ID</v-btn>
+                            <div class="oauth__delimiter"></div>
+                            <v-btn class="auth__button">
+                                <div class="auth__button-wrapper"><i class="icon google"></i> Войти через Google
+                                </div>
+                            </v-btn>
+                            <v-btn class="auth__button">
+                                <div class="auth__button-wrapper"><i class="icon facebook"></i> Войти через
+                                    Facebook
+                                </div>
+                            </v-btn>
+                        </div>
+                    </v-form>
+                </v-tab-item>
+                <v-tab-item value="signUp">
+                    <v-form ref="form">
+                        <div class="auth__oauth">
+                            <v-btn height="70" class="auth__button leader-id"> Войти через Leader
+                                ID
+                            </v-btn>
+                            <div class="oauth__delimiter"></div>
+                            <v-btn class="auth__button">
+                                <div class="auth__button-wrapper"><i class="icon google"></i> Войти
+                                    через Google
+                                </div>
+                            </v-btn>
+                            <v-btn class="auth__button">
+                                <div class="auth__button-wrapper"><i class="icon facebook"></i>
+                                    Войти через Facebook
+                                </div>
+                            </v-btn>
+                        </div>
+                    </v-form>
                 </v-tab-item>
             </v-tabs-items>
         </v-tabs>
 
-    <div class="auth">
-        <v-form ref="form">
-            <div class="auth__oauth">
-                <v-btn height="70" class="auth__button leader-id"> Войти через Leader ID</v-btn>
-                <div class="oauth__delimiter"></div>
-                <v-btn class="auth__button">
-                    <div class="auth__button-wrapper"><i class="icon google"></i> Войти через Google</div>
-                </v-btn>
-                <v-btn class="auth__button">
-                    <div class="auth__button-wrapper"><i class="icon facebook"></i> Войти через Facebook</div>
-                </v-btn>
-            </div>
-        </v-form>
-    </div>
+
     </v-card>
 </template>
 
@@ -55,8 +72,9 @@
 
 <style scoped>
     .auth {
-        /*width: 300px;*/
+        width: 325px;
         margin: auto;
+        padding: 1rem;
     }
 
     .auth__button {
