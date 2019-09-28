@@ -27,6 +27,11 @@ export default new Router({
             path: '/funds',
             name: 'Funds',
             component: () => import(/* webpackChunkName: "funds" */ './views/Funds')
+        },
+        {
+            path: '/fund/:id',
+            name: 'Fund',
+            component: () => import(/* webpackChunkName: "fund" */ './views/Fund')
         }
     ]
 })

@@ -16,7 +16,7 @@
             <span>Дата начала: {{fund.start_date}}</span>
         </v-card-text>
         <v-card-actions>
-            <v-btn text>Подробнее</v-btn>
+            <v-btn :to="'/fund/' + fund.id" text>Подробнее</v-btn>
         </v-card-actions>
     </v-card>
 </template>
