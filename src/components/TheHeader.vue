@@ -17,6 +17,7 @@
         color: #ffffff;
         border-bottom-left-radius: 10%;
         border-bottom-right-radius: 10%;
+        margin-bottom: 3rem;
     }
 
     .logo {
@@ -25,6 +26,7 @@
         align-items: center;
         color: #ffffff;
         text-decoration: none;
+        width: 85px;
     }
 
     .logo__icon {
