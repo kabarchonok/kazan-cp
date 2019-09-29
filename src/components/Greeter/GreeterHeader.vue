@@ -3,6 +3,9 @@
         <div class="greeter__header-wrapper-bg"></div>
         <div class="greeter__header-wrapper">
             <div class="greeter__logo"></div>
+            <div class="greeter__action">
+                <v-btn to="/auth" depressed dark>Сделать доброе дело</v-btn>
+            </div>
         </div>
     </div>
 </template>
