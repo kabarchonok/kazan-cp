@@ -42,5 +42,10 @@
 </script>
 
 <style scoped>
-
+    .categories {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: .5rem;
+        align-items: center;
+    }
 </style>

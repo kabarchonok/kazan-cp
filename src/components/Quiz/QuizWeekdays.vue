@@ -1,24 +1,26 @@
 <template>
     <div class="weekdays">
-        <div class="weekdays__head">
-            <div></div>
-            <div> Утро</div>
-            <div> День</div>
-            <div> Вечер</div>
-        </div>
-        <div class="weekdays__body">
-            <div class="weekdays__row" v-for="day in weekdaysArray" :key="day.value">
-                <div>
-                    {{day.name}}
-                </div>
-                <div>
-                    <v-checkbox v-model="weekdaysMutable" :value="day.value + '-morning'"/>
-                </div>
-                <div>
-                    <v-checkbox v-model="weekdaysMutable" :value="day.value + '-day'"/>
-                </div>
-                <div>
-                    <v-checkbox v-model="weekdaysMutable" :value="day.value + '-evening'"/>
+        <div class="weekdays__wrapper">
+            <div class="weekdays__head">
+                <div></div>
+                <div> Утро</div>
+                <div> День</div>
+                <div> Вечер</div>
+            </div>
+            <div class="weekdays__body">
+                <div class="weekdays__row" v-for="day in weekdaysArray" :key="day.value">
+                    <div>
+                        {{day.name}}
+                    </div>
+                    <div>
+                        <v-checkbox v-model="weekdaysMutable" :value="day.value + '-morning'"/>
+                    </div>
+                    <div>
+                        <v-checkbox v-model="weekdaysMutable" :value="day.value + '-day'"/>
+                    </div>
+                    <div>
+                        <v-checkbox v-model="weekdaysMutable" :value="day.value + '-evening'"/>
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,6 +59,11 @@
 
 <style scoped>
     .weekdays {
+        overflow: hidden;
+        overflow-x: auto;
+    }
+
+    .weekdays__wrapper {
         width: 660px;
         margin: auto;
     }
@@ -70,7 +77,7 @@
     }
 
     .weekdays__head,
-    .weekdays__row > div:first-child{
+    .weekdays__row > div:first-child {
         /*font-weight: bold;*/
     }
 

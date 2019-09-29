@@ -1,7 +1,7 @@
 <template>
     <v-card class="quiz">
         <v-card-text v-if="step === 0">
-            <div class="quiz__title">Привет! <img src="../../assets/waving-hand-sign.png" class="quiz__icon"></div>
+            <div class="quiz__title">Привет! <img src="../assets/waving-hand-sign.png" class="quiz__icon"></div>
             <div class="quiz__content">Пройдите небольшой опрос, чтобы мы могли подобрать для вас организации на
                 основе ваших возможностей и интересов
             </div>
@@ -11,24 +11,18 @@
         </v-card-text>
         <v-card-text v-else-if="step === 1">
             <div class="quiz__question">
-                Выберите свой город
+                Сначала мы должны узнать откуда вы
             </div>
             <div class="quiz__content">
                 <v-select
+                        label="Выберите свой город"
                         :items="cities"
                         v-model="city"
                 />
 
-                <v-text-field
-                        v-model="radius"
-                        label="В каком радиусе вокруг вас искать возможности"
-                        placeholder="Например. Пешком - 2-5 км. / На машине - 10км"
-                        type="sting"
-                        suffix="км."
-                />
             </div>
             <div class="quiz__action">
-                <v-btn :disabled="!city || !radius" class="primary" @click="nextStep">Далее</v-btn>
+                <v-btn :disabled="!city" class="primary" @click="nextStep">Далее</v-btn>
             </div>
         </v-card-text>
         <v-card-text v-else-if="step === 2">
@@ -57,7 +51,7 @@
         </v-card-text>
         <v-card-text v-else-if="step === 4">
             <div class="quiz__question">
-                Выберите интересующие варианты
+                Выберите наиболее подходящие варианты
             </div>
             <div class="quiz__content">
                 <quiz-advanced/>
@@ -70,16 +64,16 @@
             <div class="quiz__question">
                 Спасибо за предоставленую инфомацию
             </div>
-            <div class="quiz__content text-center">Сейчас мы подберем для вас подходящие организации</div>
+            <div class="quiz__content">Сейчас мы подберем для вас подходящие организации</div>
         </v-card-text>
 
     </v-card>
 </template>
 
 <script>
-    import QuizWeekdays from "./QuizWeekdays";
-    import QuizAdvanced from "./QuizAdvanced";
-    import QuizCategories from "./QuizCategories";
+    import QuizWeekdays from "../components/Quiz/QuizWeekdays";
+    import QuizAdvanced from "../components/Quiz/QuizAdvanced";
+    import QuizCategories from "../components/Quiz/QuizCategories";
 
     export default {
         name: "Quiz",
@@ -97,13 +91,18 @@
                     'Новосибирск',
                 ],
                 city: null,
-                radius: null,
                 categories: [],
             }
         },
         methods: {
             nextStep() {
                 this.step++
+
+                if (this.step >= 5) {
+                    setTimeout(() => {
+                        this.$router.push('/funds')
+                    }, 2000)
+                }
             }
         }
     }
@@ -117,7 +116,6 @@
     }
 
     .quiz__title {
-        text-align: center;
         font-size: 2rem;
         font-weight: bold;
         margin-bottom: 2rem;
@@ -130,16 +128,16 @@
     }
 
     .quiz__icon {
-        line-height: 1rem;
+        line-height: 1.5rem;
+        height: 1.5rem;
         display: inline-block;
-        height: 1rem;
     }
 
     .quiz__question {
         font-size: 1.7rem;
         line-height: 1.7rem;
         font-weight: bold;
-        text-align: center;
+        /*text-align: center;*/
         margin-bottom: 2.5rem;
     }
 </style>

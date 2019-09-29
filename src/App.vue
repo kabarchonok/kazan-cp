@@ -23,7 +23,7 @@
 
 <style>
     :root {
-        --header-bg-color: linear-gradient(118deg, #1D976C, #75d99a);
+        --header-bg-color: linear-gradient(45deg, #30cd97, #3d86c6);
     }
 
 </style>
