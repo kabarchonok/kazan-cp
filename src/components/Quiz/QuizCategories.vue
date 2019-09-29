@@ -48,4 +48,10 @@
         grid-gap: .5rem;
         align-items: center;
     }
+
+    @media (max-width: 600px) {
+        .categories {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>

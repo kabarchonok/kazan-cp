@@ -47,4 +47,10 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+    @media (max-width: 600px) {
+        .v-input--radio-group__input {
+            display: block;
+        }
+    }
 </style>

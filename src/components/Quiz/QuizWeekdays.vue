@@ -64,7 +64,7 @@
     }
 
     .weekdays__wrapper {
-        width: 660px;
+        max-width: 660px;
         margin: auto;
     }
 
@@ -86,6 +86,14 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         align-items: baseline;
+    }
+
+
+    @media (max-width: 600px) {
+        .weekdays__head,
+        .weekdays__row {
+            grid-template-columns: 150px 60px 60px 60px;
+        }
     }
 
     .weekdays__head > div:not(:first-child),
