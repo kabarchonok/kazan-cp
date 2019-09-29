@@ -25,6 +25,7 @@
 
     .funds__title {
         font-size: 2rem;
+        font-weight: bold;
         border-bottom: 1px solid #d0d0d0;
         margin-bottom: 1rem;
     }

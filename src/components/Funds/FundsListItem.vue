@@ -9,7 +9,7 @@
         >
         </v-img>
         <v-card-title>
-            <div>{{fund.author.short_name}}</div>
+            <div style="width: 100%;">{{fund.name}}</div>
             <span class="grey--text subtitle-1">{{fund.region.full_pretty_name}}</span>
         </v-card-title>
         <v-card-text>

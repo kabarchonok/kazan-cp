@@ -6,12 +6,12 @@
             <v-tabs-slider/>
 
             <v-tab href="#signIn">
-                Войти
+                Авторизоваться
             </v-tab>
 
-            <v-tab href="#signUp">
-                Зарегистрироваться
-            </v-tab>
+            <!--<v-tab href="#signUp">-->
+                <!--Зарегистрироваться-->
+            <!--</v-tab>-->
 
 
             <v-tabs-items class="pt-10" v-model="tab">

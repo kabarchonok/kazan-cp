@@ -1,5 +1,10 @@
 <template>
-    
+    <div class="fund">
+        <img class="fund__thumbnail" :src="fund.author.photo.large">
+        <div class="fund__name">
+            {{fund.name}}
+        </div>
+    </div>
 </template>
 
 <script>
